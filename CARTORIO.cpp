@@ -171,7 +171,7 @@ int main()
     
     else
 	{
-    printf("\nSenha Incorreta!\n\n");
+    printf("\n\tSenha Incorreta!\n\n");
 	system("pause");
 	system("cls");
 	main();

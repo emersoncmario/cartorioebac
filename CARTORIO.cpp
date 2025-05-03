@@ -88,7 +88,7 @@ int excluir()
     
     char cpf[40];
         
-    printf("\tDigite o CPF do usuário que deseja excluir:\t");
+    printf("\tDigite o CPF do usuário que deseja excluir:");
     scanf("%s", cpf);
     
     FILE *file;
@@ -101,9 +101,15 @@ int excluir()
     }
     else
     {
-        fclose(file);
-        remove(cpf);
-        printf("\n\t*** Usuário excluído com sucesso ***\n");
+    	 fclose(file);  // Fecha o arquivo primeiro
+        if(remove(cpf) == 0)  // Agora tenta remover
+        {
+            printf("\n\t*** Usuário excluído com sucesso ***\n");
+        }
+        else
+        {
+            printf("\n\t*** Falha ao excluir usuário ***\n");
+        }
         system("pause");
     }
 }
@@ -134,7 +140,7 @@ int main()
      	  printf("\tInforme o número desejado do menu: \n\n");
       	  printf("\t1 - Registrar nomes\n");
       	  printf("\t2 - Consultar nomes\n");
-  	 	  printf("\t3 - Excluir nomes\n");
+  	 	  printf("\t3 - Excluir nomes\n\n");
       	  printf("\t4 - Sair do sistema\n\n");
       	  printf("\tOpção:");
         
@@ -171,6 +177,7 @@ int main()
     
     else
 	{
+		
     printf("\n\tSenha Incorreta!\n\n");
 	system("pause");
 	system("cls");
